@@ -9,7 +9,7 @@ contract SolidityDataTypes {
 
     constructor() {
         balance = 10000;
-        owner = address(0);
+        owner = msg.sender;
         accounts["theblokc"] = 999999;
         accounts["TRIS"] = 111111;
 
@@ -18,6 +18,6 @@ contract SolidityDataTypes {
 
         console.log("owner is ", owner);
 
-        console.log("account is ", accounts["theblokc"]);
+        console.log("account is ", accounts["TRIS"]);
     }
 }

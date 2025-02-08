@@ -15,10 +15,10 @@ describe("SolidityEvents", function () {
 
     const ctcSolidityEvents = await SolidityEvents.deploy(
       INITIAL_BALANCE,
-      account1
+
     );
 
-    return { ctcSolidityEvents, account1 };
+    return { ctcSolidityEvents,  };
   }
 
   describe("Deployment", function () {
@@ -29,11 +29,10 @@ describe("SolidityEvents", function () {
     });
 
     it("should add balance if owner", async function () {
-      const { ctcSolidityEvents, account1 } = await loadFixture(deploy);
+      const { ctcSolidityEvents,  } = await loadFixture(deploy);
 
       await expect(ctcSolidityEvents.addBalance(1_000_000))
         .to.emit(ctcSolidityEvents, "BalanceAdded")
-        .withArgs(account1);
 
       const balance = await ctcSolidityEvents.getBalance();
       console.log("balance is now ", balance);

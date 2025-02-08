@@ -7,7 +7,7 @@
 const hre = require("hardhat");
 
 async function main() {
-  const contract = await hre.ethers.deployContract("AprilBords", [10000000000n]);
+  const contract = await hre.ethers.deployContract("plsbuff");
 
   await contract.waitForDeployment();
 

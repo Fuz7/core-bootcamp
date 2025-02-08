@@ -5,6 +5,7 @@ import {
 import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
 import { expect } from "chai";
 import hre from "hardhat";
+import { connected } from "process";
 
 describe("SolidityFunctions", function () {
   async function deploy() {
@@ -27,6 +28,8 @@ describe("SolidityFunctions", function () {
       const { ctcSolidityFunctions } = await loadFixture(deploy);
 
       expect(ctcSolidityFunctions).not.to.be.undefined;
+      const balance = await ctcSolidityFunctions.getBalance();
+      console.log("Initial banalce is now ", balance)
     });
 
     it("should add balance", async function () {
